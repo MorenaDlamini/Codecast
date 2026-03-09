@@ -1,0 +1,139 @@
+========================================
+  CodeCast — Dependencies
+========================================
+
+QUICK INSTALL
+-------------
+Navigate to the codecast/ directory, then run:
+
+    npm install
+
+That's it. npm will install everything listed below automatically from package.json.
+
+
+----------------------------------------
+PRODUCTION DEPENDENCIES
+----------------------------------------
+
+react@^18.2.0
+  UI framework — component rendering and lifecycle
+
+react-dom@^18.2.0
+  React DOM renderer for browser environments
+
+react-router-dom@^6.18.0
+  Client-side routing (BrowserRouter, Route, Link, etc.)
+
+zustand@^4.4.6
+  Lightweight global state management
+
+date-fns@^2.30.0
+  Date formatting and manipulation utilities
+
+immer@^10.0.3
+  Immutable state updates using mutable-style code
+
+use-sound@^4.0.1
+  React hook for audio playback
+
+
+----------------------------------------
+DEV DEPENDENCIES
+----------------------------------------
+
+vite@^4.4.5
+  Build tool and local development server (HMR)
+
+typescript@^5.0.2
+  TypeScript compiler and type checking
+
+@vitejs/plugin-react@^4.0.3
+  Vite plugin for React (JSX transform, Fast Refresh)
+
+@types/react@^18.2.15
+  TypeScript type definitions for React
+
+@types/react-dom@^18.2.7
+  TypeScript type definitions for React DOM
+
+@types/node@^20.9.0
+  TypeScript type definitions for Node.js
+
+eslint@^8.45.0
+  JavaScript/TypeScript linter
+
+@typescript-eslint/eslint-plugin@^8.29.0
+  ESLint rules for TypeScript
+
+@typescript-eslint/parser@^8.29.0
+  ESLint parser for TypeScript syntax
+
+typescript-eslint@^8.29.0
+  TypeScript ESLint tooling utilities
+
+eslint-plugin-react-hooks@^4.6.0
+  ESLint rules for React Hooks best practices
+
+eslint-plugin-react-refresh@^0.4.3
+  ESLint rules for Vite React Refresh compatibility
+
+netlify-cli@^17.38.1
+  Netlify command-line tools for deployment
+
+
+----------------------------------------
+SYSTEM REQUIREMENTS
+----------------------------------------
+
+Node.js  : v18.0.0 or higher (v20+ recommended)
+npm      : v8.0.0 or higher
+Browser  : Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+
+
+----------------------------------------
+STEP-BY-STEP SETUP
+----------------------------------------
+
+1. Clone the repository:
+   git clone https://github.com/MorenaDlamini/codecast.git
+
+2. Navigate into the project:
+   cd codecast
+
+3. Install all dependencies:
+   npm install
+
+4. Start the development server:
+   npm run dev
+
+5. Open in your browser:
+   http://localhost:5173
+
+
+----------------------------------------
+PRODUCTION BUILD
+----------------------------------------
+
+   npm run build
+   npm run preview
+
+Output is generated in codecast/dist/
+Deploy the dist/ folder to any static hosting provider (Netlify, Vercel, GitHub Pages).
+
+
+----------------------------------------
+DEPLOYMENT (Netlify)
+----------------------------------------
+
+The project is pre-configured for Netlify.
+
+Via CLI:
+   npm install -g netlify-cli
+   netlify deploy --prod --dir=dist
+
+Or connect your GitHub repository to Netlify and set:
+  Build command : npm run build
+  Publish dir   : dist
+
+
+========================================

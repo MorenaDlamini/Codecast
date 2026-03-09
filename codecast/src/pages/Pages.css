@@ -1,0 +1,446 @@
+/* ----------------------------------------
+   🌐 Global Page Layout
+   Base spacing and section structure
+---------------------------------------- */
+
+.page {
+  padding-bottom: 32px; /* Prevents last page content from being obscured by sticky audio player */
+}
+
+.page__header {
+  margin-bottom: 32px; /* Adds vertical rhythm between header and main content */
+}
+
+.page__title {
+  font-size: 2rem;
+  margin: 0 0 16px;
+  color: var(--color-text-dark); /* Uses theme-defined dark text color */
+  transition: var(--transition-theme); /* Enables smooth transition on theme switch */
+}
+
+/* 🎛️ Container for filters and delete actions (column on mobile, row on desktop) */
+.page__header-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start; /* Align items to the start for mobile */
+}
+
+@media (min-width: 768px) {
+  .page__header-actions {
+    flex-direction: row; /* Switch to horizontal layout on tablet and up */
+    align-items: center;
+    justify-content: space-between; /* Space filter and action controls evenly */
+  }
+}
+
+/* 🧹 "Delete All" button styling for actions like clear history */
+.page__delete-all-btn {
+  background-color: #ef4444; /* Tailwind red-500: strong warning for destructive action */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s; /* Visual feedback on hover/active */
+}
+
+.page__delete-all-btn:hover {
+  background-color: #dc2626; /* Tailwind red-600: hover darkening */
+}
+
+.page__delete-all-btn:active {
+  transform: scale(0.98); /* Slight scale on click for tactile feedback */
+}
+
+/* 🔍 Filter + Search alignment */
+.page__search-and-filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap; /* Wrap for small screens */
+}
+
+@media (max-width: 640px) {
+  .page__search-and-filters {
+    flex-direction: column;
+    align-items: stretch; /* Full width stacking on small screens */
+  }
+}
+
+/* ----------------------------------------
+   🔙 Navigation & Back Links
+---------------------------------------- */
+
+.page__back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--color-text-medium);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, var(--transition-theme);
+}
+
+.page__back-link:hover {
+  color: var(--color-primary);
+}
+
+/* ----------------------------------------
+   🚨 Error / 🕳️ Empty / 🔁 Retry States
+---------------------------------------- */
+
+.page__error {
+  background-color: #fee2e2; /* Light red background for error feedback */
+  border-radius: 8px;
+  padding: 24px;
+  margin: 32px 0;
+  color: #b91c1c; /* Strong red text */
+  text-align: center;
+}
+
+.page__empty {
+  background-color: var(--color-border);
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  color: var(--color-text-medium);
+  transition: var(--transition-theme);
+}
+
+/* 🎯 Utility buttons for retry/reset/back */
+.page__retry-btn,
+.page__reset-btn,
+.page__back-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+/* Retry = Red (error recovery) */
+.page__retry-btn {
+  background-color: #b91c1c;
+  color: white;
+  border: none;
+}
+
+.page__retry-btn:hover {
+  background-color: #991b1b;
+}
+
+/* Reset = Slate (neutral action) */
+.page__reset-btn {
+  background-color: #4b5563;
+  color: white;
+  border: none;
+}
+
+.page__reset-btn:hover {
+  background-color: #374151;
+}
+
+/* Back = Indigo (primary navigation action) */
+.page__back-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+}
+
+.page__back-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ----------------------------------------
+   🧱 Show Grid (Used in Home Page)
+---------------------------------------- */
+
+.show-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 1200px) {
+  .show-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .show-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .show-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ----------------------------------------
+   📺 Show Detail Header
+---------------------------------------- */
+
+.show-header {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.show-header__image-container {
+  flex: 0 0 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--color-shadow);
+  transition: var(--transition-theme);
+}
+
+.show-header__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.show-header__content {
+  flex: 1;
+}
+
+.show-header__title {
+  font-size: 2.25rem;
+  margin: 0 0 16px;
+  color: var(--color-text-dark);
+  transition: var(--transition-theme);
+}
+
+.show-header__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.show-header__genre {
+  background-color: var(--color-border);
+  color: var(--color-text-medium);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition-theme);
+}
+
+.show-header__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  transition: var(--transition-theme);
+}
+
+.show-header__separator {
+  font-size: 0.75rem;
+}
+
+.show-header__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  transition: var(--transition-theme);
+}
+
+/* ----------------------------------------
+   🎬 Season Detail Layout
+---------------------------------------- */
+
+.season-header {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.season-header__image-container {
+  flex: 0 0 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--color-shadow);
+  transition: var(--transition-theme);
+}
+
+.season-header__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.season-header__content {
+  flex: 1;
+}
+
+.season-header__title {
+  font-size: 2rem;
+  margin: 0 0 8px;
+  color: var(--color-text-dark);
+  transition: var(--transition-theme);
+}
+
+.season-header__show-title {
+  font-size: 1.25rem;
+  color: var(--color-text-medium);
+  margin-bottom: 16px;
+  transition: var(--transition-theme);
+}
+
+.season-header__meta {
+  margin-bottom: 24px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  transition: var(--transition-theme);
+}
+
+/* 🎚️ Season selection buttons (e.g. S1, S2...) */
+.season-selector {
+  margin-top: 24px;
+}
+
+.season-selector__label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--color-text-medium);
+  transition: var(--transition-theme);
+}
+
+.season-selector__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.season-selector__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  color: var(--color-text-medium);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s, var(--transition-theme);
+}
+
+.season-selector__button:hover {
+  background-color: var(--color-border);
+  color: var(--color-text-dark);
+}
+
+.season-selector__button--active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* ----------------------------------------
+   🧭 Not Found (404) Page
+---------------------------------------- */
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.not-found__content {
+  max-width: 500px;
+}
+
+.not-found__title {
+  font-size: 8rem;
+  margin: 0;
+  line-height: 1;
+  color: var(--color-primary);
+  font-weight: 700;
+  transition: var(--transition-theme);
+}
+
+.not-found__subtitle {
+  font-size: 2rem;
+  margin: 0 0 16px;
+  color: var(--color-text-dark);
+  transition: var(--transition-theme);
+}
+
+.not-found__message {
+  margin-bottom: 32px;
+  color: var(--color-text-light);
+  transition: var(--transition-theme);
+}
+
+.not-found__home-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s, var(--transition-theme);
+}
+
+.not-found__home-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ----------------------------------------
+   📱 Responsive Layout Adjustments
+---------------------------------------- */
+
+@media (max-width: 768px) {
+  .show-header,
+  .season-header {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .show-header__image-container,
+  .season-header__image-container {
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .page__title {
+    font-size: 1.75rem;
+  }
+
+  .show-header__title {
+    font-size: 1.75rem;
+  }
+
+  .season-header__title {
+    font-size: 1.5rem;
+  }
+
+  .not-found__title {
+    font-size: 6rem;
+  }
+
+  .not-found__subtitle {
+    font-size: 1.5rem;
+  }
+}
